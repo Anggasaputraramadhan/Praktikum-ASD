@@ -1,3 +1,45 @@
+import java.util.Scanner;
+
+public class MahasiswaDemo05 {
+    public static void main(String[] args) {
+        Scanner sc05 = new Scanner(System.in);
+        Mahasiswa05[] arrayOfMahasiswa = new Mahasiswa05[3];
+        String dummy;
+
+        for (int i = 0; i < 3; i++) {
+            arrayOfMahasiswa[i] = new Mahasiswa05();
+            
+            System.out.println("Masukkan Data Mahasiswa ke-" + (i + 1));
+
+            System.out.print("NIM   : ");
+            arrayOfMahasiswa[i].nim = sc05.nextLine();
+
+            System.out.print("Nama  : ");
+            arrayOfMahasiswa[i].nama = sc05.nextLine();
+
+            System.out.print("Kelas : ");
+            arrayOfMahasiswa[i].kelas = sc05.nextLine();
+
+            System.out.print("IPK   : ");
+            dummy = sc05.nextLine(); 
+            arrayOfMahasiswa[i].ipk = Float.parseFloat(dummy);
+
+            System.out.println("---------------------------------");
+        }
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Data Mahasiswa ke-" + (i + 1));
+            System.out.println("NIM   : " + arrayOfMahasiswa[i].nim);
+            System.out.println("Nama  : " + arrayOfMahasiswa[i].nama);
+            System.out.println("Kelas : " + arrayOfMahasiswa[i].kelas);
+            System.out.println("IPK   : " + arrayOfMahasiswa[i].ipk);
+            System.out.println("---------------------------------");
+        }
+
+        sc05.close();
+    }
+}
+
 public class MahasiswaDemo05 {
     public static void main(String[] args) {
         Mahasiswa05[] arrayOfMahasiswa = new Mahasiswa05[3];
@@ -19,6 +61,10 @@ public class MahasiswaDemo05 {
         arrayOfMahasiswa[2].nama = "DIRHAMAWAN PUTRANTO";
         arrayOfMahasiswa[2].kelas = "TI-2E";
         arrayOfMahasiswa[2].ipk = (float) 3.80;
+
+        for (int i = 0; i < arrayOfMahasiswa.length; i++) {
+            arrayOfMahasiswa[i].cetakInfo();
+        }
 
         System.out.println("NIM     : " + arrayOfMahasiswa[0].nim);
         System.out.println("Nama    : " + arrayOfMahasiswa[0].nama);

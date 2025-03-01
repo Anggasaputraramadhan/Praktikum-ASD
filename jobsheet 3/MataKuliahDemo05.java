@@ -3,39 +3,31 @@ import java.util.Scanner;
 public class MataKuliahDemo05 {
     public static void main(String[] args) {
         Scanner sc05 = new Scanner(System.in);
-        MataKuliah05[] arrayOfMataKuliah = new MataKuliah05[3];
-        String kode, nama, dummy;
-        int sks, jumlahJam;
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Masukkan Data Mata Kuliah ke-" + (i + 1));
+        System.out.print("Masukkan jumlah mata kuliah: ");
+        int jumlahMatkul = sc05.nextInt();
+        sc05.nextLine();
 
-            System.out.print("Kode  : ");
-            kode = sc05.nextLine();
+        MataKuliah05[] arrayMatkul = new MataKuliah05[jumlahMatkul];
 
-            System.out.print("Nama  : ");
-            nama = sc05.nextLine();
+        for (int i = 0; i < jumlahMatkul; i++) {
+            System.out.println("\nMasukkan Data Mata Kuliah ke-" + (i + 1));
+            System.out.print("Kode Mata Kuliah: ");
+            String kode = sc05.nextLine();
+            System.out.print("Nama Mata Kuliah: ");
+            String nama = sc05.nextLine();
+            System.out.print("SKS: ");
+            int sks = sc05.nextInt();
+            System.out.print("Jumlah Jam: ");
+            int jumlahJam = sc05.nextInt();
+            sc05.nextLine();
 
-            System.out.print("SKS   : ");
-            dummy = sc05.nextLine();
-            sks = Integer.parseInt(dummy);
-
-            System.out.print("Jumlah Jam : ");
-            dummy = sc05.nextLine();
-            jumlahJam = Integer.parseInt(dummy);
-
-            arrayOfMataKuliah[i] = new MataKuliah05(kode, nama, sks, jumlahJam);
-            System.out.println("---------------------------------");
+            arrayMatkul[i] = new MataKuliah05(kode, nama, sks, jumlahJam);
         }
 
-        System.out.println("\n=== Data Mata Kuliah ===");
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Data Mata Kuliah ke-" + (i + 1));
-            System.out.println("Kode       : " + arrayOfMataKuliah[i].kode);
-            System.out.println("Nama       : " + arrayOfMataKuliah[i].nama);
-            System.out.println("SKS        : " + arrayOfMataKuliah[i].sks);
-            System.out.println("Jumlah Jam : " + arrayOfMataKuliah[i].jumlahJam);
-            System.out.println("---------------------------------");
+        System.out.println("\nData Mata Kuliah yang telah dimasukkan:");
+        for (MataKuliah05 matkul : arrayMatkul) {
+            matkul.cetakInfo();
         }
 
         sc05.close();
