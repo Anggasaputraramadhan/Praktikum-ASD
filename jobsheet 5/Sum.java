@@ -1,7 +1,7 @@
 public class Sum {
     double keuntungan[];
 
-    Sum16(int el) {
+    Sum(int el) {
         keuntungan = new double[el];
     }
 
